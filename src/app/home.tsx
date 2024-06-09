@@ -131,7 +131,7 @@ export default function Home() {
   return (
     <div className="container mx-auto p-4 xl:py-8 max-w-xl">
       <main className=" rounded-lg border-pink-600 border-solid border bg-pink-800 p-6">
-        <h1 className="text-3xl font-bold ">
+        <h1 className="text-4xl font-bold ">
           🤙{" "}
           <span className="underline decoration-pink-600">
             Esmeralda Pinkie Promises
@@ -140,10 +140,10 @@ export default function Home() {
         <div className="flex flex-col gap-8 my-8">
           {authState !== "authenticated" && (
             <div className="flex flex-col gap-1">
-              <label className="font-medium">
+              <label className="font-medium text-lg">
                 To make a promise, sign in with Zupass:
               </label>
-              <div className="mx-auto mt-2">
+              <div className="mx-auto mt-6">
                 <SignInWithZupass
                   loading={
                     authState === "auth-start" || authState === "authenticating"
@@ -154,7 +154,7 @@ export default function Home() {
             </div>
           )}
           {user && (
-            <div>
+            <div className="text-lg">
               Authenticated as <strong>{user.attendeeName}</strong> (
               <strong>{user.attendeeEmail}</strong>)
             </div>
@@ -162,7 +162,7 @@ export default function Home() {
           {authState === "authenticated" && !shareableUrl && (
             <>
               <div className="flex flex-col gap-1">
-                <label className="font-medium">
+                <label className="font-medium text-lg">
                   Who do you want to make a promise to?
                 </label>
                 <input
@@ -174,7 +174,9 @@ export default function Home() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <label className="font-medium">What is your promise?</label>
+                <label className="font-medium text-lg">
+                  What is your promise?
+                </label>
                 <textarea
                   value={promise}
                   onChange={(ev) => setPromise(ev.target.value)}
